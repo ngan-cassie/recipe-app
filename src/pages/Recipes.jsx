@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import RecipeList from "../components/RecipeList";
 import Search from "../components/Search";
-import { recipeData } from "../data/recipe_data";
+import Filter from "../components/Filter";
 import services from "../Services";
 
 export default class Recipe extends Component {
@@ -11,27 +11,38 @@ export default class Recipe extends Component {
   state = {
     recipes: [],
     search: "",
+    type: "",
   };
   handleChange = (e) => {
     this.setState({
       search: e.target.value,
     });
   };
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleFilter = (e) => {
+    this.setState({
+      type: e.target.innerHTML,
+    });
   };
-  componentDidMount() {
+
+  async componentDidMount() {
     const recipes = await services.getRecipes();
-    this.setState({recipes: [...this.state.recipes, ...recipes]})
+    this.setState({ recipes: [...this.state.recipes, ...recipes] });
+    services.pushKeywords();
+  }
+  async componentDidUpdate(prevProps, prevState) {
+    if (prevState.search !== this.state.search) {
+      const recipes = await services.searchRecipes(this.state.search);
+      this.setState({ recipes: recipes });
+    } else if (prevState.type !== this.state.type) {
+      const recipes = await services.filterRecipes(this.state.type);
+      this.setState({ recipes: recipes });
+    }
   }
   render() {
     return (
       <>
-        <Search
-          search={this.state.search}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
+        <Search search={this.state.search} handleChange={this.handleChange} />
+        <Filter handleFilter={this.state.handleFilter} />
         <RecipeList recipes={this.state.recipes} />
       </>
     );

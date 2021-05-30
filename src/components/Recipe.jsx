@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 export default class Recipe extends Component {
   render() {
     const type = this.props.recipe.type;
@@ -7,11 +6,11 @@ export default class Recipe extends Component {
     const title = this.props.recipe.title;
     const url = this.props.recipe.url;
     return (
-      <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
+      <div className="col-10 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card" style={{ height: "100%" }}>
           <img
             src={img_url}
-            style={{ height: "14rem" }}
+            style={{ overflow: "hidden" }}
             className="img-card-top"
             alt="recipe"
           />
@@ -22,7 +21,6 @@ export default class Recipe extends Component {
             <h6>{type}</h6>
           </div>
           <div className="card-footer">
-            <Link to="/" />
             <a
               href={url}
               target="_blank"

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class Search extends Component {
   render() {
-    const { handleChange, handleSubmit, search } = this.props;
+    const { handleChange, search } = this.props;
     return (
       <div className="container">
         <div className="row">
@@ -11,9 +11,9 @@ export default class Search extends Component {
               search recipes in{" "}
               <strong className="text-purple">Sewanee Dining</strong>
             </h1>
-            <form className="mt-4">
-              <label htmlFor="search">type recipes separated by commas</label>
-              <div className="input-group">
+            <form className="mt-5">
+              <label htmlFor="search">Please type in all lowercase</label>
+              <div className="input-group mt-1">
                 <input
                   type="text"
                   name="search"
@@ -22,7 +22,7 @@ export default class Search extends Component {
                   value={search}
                   onChange={handleChange}
                 />
-                <div className="input-group-append">
+                {/* <div className="input-group-append">
                   <button
                     type="submit"
                     className="input-group-text bg-primary text-white"
@@ -30,7 +30,7 @@ export default class Search extends Component {
                   >
                     <i className="fas fa-search" />
                   </button>
-                </div>
+                </div> */}
               </div>
             </form>
           </div>
