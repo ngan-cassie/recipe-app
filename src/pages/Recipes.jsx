@@ -19,9 +19,14 @@ export default class Recipe extends Component {
     });
   };
   handleFilter = (e) => {
-    this.setState({
-      type: e.target.innerHTML,
-    });
+    if (e.target.innerHTML === "Reset")
+      this.setState({
+        type: "",
+      });
+    else
+      this.setState({
+        type: e.target.innerHTML,
+      });
   };
 
   async componentDidMount() {
@@ -34,7 +39,9 @@ export default class Recipe extends Component {
       const recipes = await services.searchRecipes(this.state.search);
       this.setState({ recipes: recipes });
     } else if (prevState.type !== this.state.type) {
+      console.log(this.state.type);
       const recipes = await services.filterRecipes(this.state.type);
+      console.log(recipes);
       this.setState({ recipes: recipes });
     }
   }
@@ -42,7 +49,7 @@ export default class Recipe extends Component {
     return (
       <>
         <Search search={this.state.search} handleChange={this.handleChange} />
-        <Filter handleFilter={this.state.handleFilter} />
+        <Filter handleFilter={this.handleFilter} />
         <RecipeList recipes={this.state.recipes} />
       </>
     );

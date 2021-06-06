@@ -4,7 +4,7 @@ export default class Filter extends React.Component {
   render() {
     const { handleFilter } = this.props;
     return (
-      <div className="d-flex justify-content-center mx-auto col-lg-8 my-3">
+      <div className="d-flex justify-content-center mx-auto col-lg-9 my-3">
         <button
           type="button"
           className="btn btn-outline-info mx-2"
@@ -15,7 +15,7 @@ export default class Filter extends React.Component {
         <button
           type="button"
           className="btn btn-outline-info mx-2"
-          onClick={this.handleFilter}
+          onClick={handleFilter}
         >
           Homeline
         </button>
@@ -45,7 +45,7 @@ export default class Filter extends React.Component {
           className="btn btn-outline-info mx-2"
           onClick={handleFilter}
         >
-          Grill/ Pasta
+          Grill/Pasta
         </button>
         <button
           type="button"
@@ -67,6 +67,13 @@ export default class Filter extends React.Component {
           onClick={handleFilter}
         >
           Dessert
+        </button>
+        <button
+          type="button"
+          className="btn btn-dark mx-2"
+          onClick={handleFilter}
+        >
+          Reset
         </button>
       </div>
     );

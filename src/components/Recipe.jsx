@@ -14,7 +14,7 @@ export default class Recipe extends Component {
             className="img-card-top"
             alt="recipe"
           />
-          <div className="card-body text-uppercase text-cute text-center text-purple">
+          <div className="card-body text-uppercase text-recipe text-center text-purple">
             <h4>{title}</h4>
           </div>
           <div className="card-body text-center">

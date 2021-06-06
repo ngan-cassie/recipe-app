@@ -54,11 +54,12 @@ const createKeywords = (title) => {
 };
 
 const filterRecipes = async (type) => {
+  if (type === "") return getRecipes();
   const recipes = [];
   const snapshot = await firebase
     .firestore()
     .collection("recipes")
-    .where("type", "===", type)
+    .where("type", "==", type)
     .get();
   snapshot.forEach((doc) => {
     let recipe = doc.data();

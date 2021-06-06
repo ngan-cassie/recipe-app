@@ -1,11 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
 body {
   font-family: "Open Sans", sans-serif !important;
 }
 .text-cute {
   font-family: "Comfortaa", cursive;
 }
-.text-purple {
-  text-color: rgba(rgb(96, 37, 173));
+.text-title {
+  font-family: "Sigmar One";
+  background-color: blueviolet;
+}
+.text-recipe {
+  font-family: "Sigmar One";
+  color: #4f2258;
+  background-color: white;
 }
 .letter-spacing {
   letter-spacing: 0.5rem;
@@ -13,7 +20,7 @@ body {
 .header-hero,
 .default-hero {
   min-height: calc(100vh - 100px);
-  background: url("https://images.unsplash.com/photo-1585543923016-c6ac4a980ff0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80")
+  background: url("https://images.creativemarket.com/0.1.0/ps/4512623/2527/1688/m1/fpnw/wm0/fast_food-02-.jpg?1527420685&s=11d6ee1f5b2f84f907181ef9aa0bdc19")
     center/ cover no-repeat;
 }
 
