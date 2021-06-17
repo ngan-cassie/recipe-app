@@ -8,8 +8,8 @@ export default class Search extends Component {
         <div className="row">
           <div className="col-10 mx-auto col-md-8 mt-5 text-center">
             <h1 className="text-cute text-capitalize">
-              search recipes in{" "}
-              <strong className="text-purple">Sewanee Dining</strong>
+              let's search for some{" "}
+              <strong className="text-recipe">CLURG RECIPES! </strong>
             </h1>
             <form className="mt-5">
               <label htmlFor="search">Please type in all lowercase</label>
